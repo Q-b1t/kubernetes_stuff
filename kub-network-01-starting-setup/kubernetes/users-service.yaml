@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: users-service
+spec:
+  selector:
+    app: users # this service specification is simpler than deployment (do not need match labels)
+  type: LoadBalancer 
+  ports:
+    - protocol: TCP
+      port: 8080 # external (internet facing)
+      targetPort: 8080 # internal port
+  

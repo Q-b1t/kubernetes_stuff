@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-service
+spec:
+  selector:
+    app: auth # this service specification is simpler than deployment (do not need match labels)
+  type: ClusterIP 
+  ports:
+    - protocol: TCP
+      port: 80 # external (internet facing)
+      targetPort: 80 # internal port
+  
